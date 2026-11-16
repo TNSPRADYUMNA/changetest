@@ -41,10 +41,16 @@ def graph_for(root):
                     target = imported.text.decode()
                     if target.startswith("."):
                         level = len(target) - len(target.lstrip("."))
-                        parts = name.split(".")[:-level]
-                        target = ".".join([*parts, target.lstrip(".")]).rstrip(".")
+                        package_parts = name.split(".") if Path(path).name == "__init__.py" else name.split(".")[:-1]
+                        keep = max(0, len(package_parts) - level + 1)
+                        target = ".".join([*package_parts[:keep], target.lstrip(".")]).strip(".")
                     if target in modules:
                         g.add_edge(modules[target], path, kind="import")
+                    for child in node.children_by_field_name("name"):
+                        member = child.text.decode().split(" as ")[0]
+                        submodule = ".".join(part for part in (target, member) if part)
+                        if submodule in modules:
+                            g.add_edge(modules[submodule], path, kind="import")
             if node.type == "import_statement":
                 for child in node.named_children:
                     target = child.text.decode().split(" as ")[0]
