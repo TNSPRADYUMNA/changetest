@@ -1,0 +1,210 @@
+[
+  {
+    "change": "component0.py",
+    "method": "imports",
+    "selected": [
+      "test_component0.py"
+    ],
+    "failed_full": [
+      "test_component0.py",
+      "test_contract.py"
+    ],
+    "caught": [
+      "test_component0.py"
+    ],
+    "precision": 1.0,
+    "recall": 0.5,
+    "selected_seconds": 1.9655080999946222,
+    "full_seconds": 2.1190452000009827
+  },
+  {
+    "change": "component0.py",
+    "method": "knowledge",
+    "selected": [
+      "test_component0.py",
+      "test_contract.py"
+    ],
+    "failed_full": [
+      "test_component0.py",
+      "test_contract.py"
+    ],
+    "caught": [
+      "test_component0.py",
+      "test_contract.py"
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "selected_seconds": 1.641648199991323,
+    "full_seconds": 2.1190452000009827
+  },
+  {
+    "change": "component1.py",
+    "method": "imports",
+    "selected": [
+      "test_component1.py"
+    ],
+    "failed_full": [
+      "test_component1.py"
+    ],
+    "caught": [
+      "test_component1.py"
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "selected_seconds": 1.391438900027424,
+    "full_seconds": 1.3301522000110708
+  },
+  {
+    "change": "component1.py",
+    "method": "knowledge",
+    "selected": [
+      "test_component1.py"
+    ],
+    "failed_full": [
+      "test_component1.py"
+    ],
+    "caught": [
+      "test_component1.py"
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "selected_seconds": 1.603580900002271,
+    "full_seconds": 1.3301522000110708
+  },
+  {
+    "change": "component2.py",
+    "method": "imports",
+    "selected": [
+      "test_component2.py"
+    ],
+    "failed_full": [
+      "test_component2.py"
+    ],
+    "caught": [
+      "test_component2.py"
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "selected_seconds": 1.3241869999910705,
+    "full_seconds": 1.6163352000294253
+  },
+  {
+    "change": "component2.py",
+    "method": "knowledge",
+    "selected": [
+      "test_component2.py"
+    ],
+    "failed_full": [
+      "test_component2.py"
+    ],
+    "caught": [
+      "test_component2.py"
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "selected_seconds": 1.3716510999947786,
+    "full_seconds": 1.6163352000294253
+  },
+  {
+    "change": "component3.py",
+    "method": "imports",
+    "selected": [
+      "test_component3.py"
+    ],
+    "failed_full": [
+      "test_component3.py"
+    ],
+    "caught": [
+      "test_component3.py"
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "selected_seconds": 1.3909487000200897,
+    "full_seconds": 1.4933981000212952
+  },
+  {
+    "change": "component3.py",
+    "method": "knowledge",
+    "selected": [
+      "test_component3.py"
+    ],
+    "failed_full": [
+      "test_component3.py"
+    ],
+    "caught": [
+      "test_component3.py"
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "selected_seconds": 1.406234800000675,
+    "full_seconds": 1.4933981000212952
+  },
+  {
+    "change": "component4.py",
+    "method": "imports",
+    "selected": [
+      "test_component4.py"
+    ],
+    "failed_full": [
+      "test_component4.py"
+    ],
+    "caught": [
+      "test_component4.py"
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "selected_seconds": 1.4321164999855682,
+    "full_seconds": 1.6161006000475027
+  },
+  {
+    "change": "component4.py",
+    "method": "knowledge",
+    "selected": [
+      "test_component4.py"
+    ],
+    "failed_full": [
+      "test_component4.py"
+    ],
+    "caught": [
+      "test_component4.py"
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "selected_seconds": 1.2155630000052042,
+    "full_seconds": 1.6161006000475027
+  },
+  {
+    "change": "component5.py",
+    "method": "imports",
+    "selected": [
+      "test_component5.py"
+    ],
+    "failed_full": [
+      "test_component5.py"
+    ],
+    "caught": [
+      "test_component5.py"
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "selected_seconds": 1.3528184000169858,
+    "full_seconds": 1.4214090000023134
+  },
+  {
+    "change": "component5.py",
+    "method": "knowledge",
+    "selected": [
+      "test_component5.py"
+    ],
+    "failed_full": [
+      "test_component5.py"
+    ],
+    "caught": [
+      "test_component5.py"
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "selected_seconds": 1.3450937999878079,
+    "full_seconds": 1.4214090000023134
+  }
+]
