@@ -73,12 +73,31 @@ def select(g, changes, links=None):
     return sorted(impacted & tests)
 
 
+def prioritize(g, changes, links=None):
+    selected = select(g, changes, links)
+    rows = []
+    for test in selected:
+        parts = set(Path(test).parts)
+        category = "end_to_end" if parts & {"e2e", "end_to_end"} else (
+            "integration" if "integration" in parts else "unit")
+        distances = [nx.shortest_path_length(g, change, test) for change in changes
+                     if change in g and nx.has_path(g, change, test)]
+        explicit = any(test in (links or {}).get(change, []) for change in changes)
+        rows.append({"path":test,"category":category,"distance":min(distances) if distances else None,
+                     "reason":"dependency_and_knowledge" if distances and explicit else
+                     "dependency" if distances else "knowledge" if explicit else "conservative_fallback"})
+    order = {"unit":0,"integration":1,"end_to_end":2}
+    return sorted(rows,key=lambda row:(order[row["category"]],
+                                      row["distance"] if row["distance"] is not None else 999,row["path"]))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", type=Path)
     parser.add_argument("changed", nargs="*")
     parser.add_argument("--base", help="Git base revision for comparing committed files with HEAD")
     parser.add_argument("--knowledge", type=Path)
+    parser.add_argument("--explain", action="store_true")
     args = parser.parse_args()
     links = json.loads(args.knowledge.read_text()) if args.knowledge else {}
     changes = args.changed
@@ -88,7 +107,8 @@ def main():
         raw = subprocess.check_output(["git", "diff", "--name-only", "-z", revision, "HEAD", "--"],
                                       cwd=args.root)
         changes = raw.decode().strip("\0").split("\0") if raw else []
-    print(json.dumps(select(graph_for(args.root), changes, links)))
+    graph = graph_for(args.root)
+    print(json.dumps(prioritize(graph, changes, links) if args.explain else select(graph, changes, links)))
 
 
 if __name__ == "__main__":

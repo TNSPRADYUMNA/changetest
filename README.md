@@ -16,6 +16,10 @@ A knowledge file maps repository-relative paths to known tests, for example `{"m
 
 ## Verified mutation results
 
+Use `--explain` on the selector or POST a change set to `/plan` for a prioritized plan with a reason and dependency distance. Tests in `unit/`, `integration/`, and `e2e/` or `end_to_end/` are classified by directory. Unit tests are scheduled first, followed by integration and end-to-end tests, with nearer dependencies first within each category. Explicit knowledge links can supply dynamic coverage. Category conventions and static imports must be maintained for the repository.
+
+The graph records import edges and function/class definitions. This is a partial program graph; it does not resolve arbitrary dynamic calls or provide a complete code property graph. The published evaluation measures test-file selection and missed failing files on the mutation fixture.
+
 | Selection | Failed test files caught | Files scheduled across six changes |
 | --- | ---: | ---: |
 | Full pytest | 7 / 7 | 42 |
